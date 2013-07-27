@@ -26,7 +26,7 @@ module LEAP
           unless data.has_key? "type"
             raise Error, "gesture type unknown"
           end
-          name = data["type"][0].upcase << data["type"][1..-1]
+          name = data["type"][0,1].upcase << data["type"][1..-1]
           unless class_exists?(name)
             raise Error, "gesture class `#{self}::#{name}' invalid"
           end
